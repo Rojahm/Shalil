@@ -1,0 +1,24 @@
+h1,
+h2 {
+  text-align: center;
+}
+p {
+  margin-top: 20px;
+}
+.box {
+  transition: all 1s ease-in-out;
+}
+.jackpot-start {
+  background-color: rgb(255, 0, 140);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  width: 2px;
+  height: 70px;
+}
+.jackpot-end {
+  background-color: rgb(255, 0, 140);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  width: 10px;
+  height: 70px;
+}

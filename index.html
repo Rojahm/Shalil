@@ -34,31 +34,41 @@
           <div class="d-flex">
             <div class="col jackpot-start"></div>
             <div class="col border text-center box">
-              <div class="inside" id="box">
+              <p class="" id="init-state1">🦄</p>
+              <div class="inside" id="box1">
                 <p id="rand1"></p>
               </div>
             </div>
-            <div class="col border text-center">
-              <p id="rand2"></p>
+            <div class="col border text-center box">
+              <p class="" id="init-state2">🦄</p>
+              <div class="inside" id="box2">
+                <p id="rand2"></p>
+              </div>
             </div>
-            <div class="col border text-center">
-              <p id="rand3"></p>
+            <div class="col border text-center box">
+              <p class="" id="init-state3">🦄</p>
+              <div class="inside" id="box3">
+                <p id="rand3"></p>
+              </div>
             </div>
             <div class="col jackpot-end"></div>
           </div>
         </div>
         <div class="col">
           <button class="btn btn-success" id="lucky-button">feel lucky</button>
+          <button class="btn btn-success d-none" id="reset-button">
+            Reset
+          </button>
         </div>
       </div>
       <div class="row">
         <div class="col"></div>
-        <div class="col">
+        <div class="col random-img-div">
           <img
             src=""
             alt="shalil doing something"
             id="random-img"
-            class="img-fluid p-3 mt-5 border rounded shadow-sm text-center d-block"
+            class="d-none img-fluid p-3 mt-5 border rounded shadow-sm text-center"
           />
         </div>
         <div class="col"></div>

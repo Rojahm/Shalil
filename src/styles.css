@@ -5,6 +5,7 @@ h2 {
 p {
   font-size: 50px;
 }
+
 .box {
   width: 303px;
   height: 71px;
@@ -12,10 +13,10 @@ p {
 }
 
 .box .inside {
-  position: relative;
-  top: -300px;
 }
 .active {
+  position: relative;
+  top: -300px;
   transition: all 2s;
   transform: translateY(300px);
 }
@@ -32,4 +33,14 @@ p {
   border-bottom-right-radius: 50px;
   width: 10px;
   height: 70px;
+}
+
+#box1 {
+  transition-delay: 0.5s;
+}
+#box2 {
+  transition-delay: 0.9s;
+}
+#box3 {
+  transition-delay: 1.2s;
 }

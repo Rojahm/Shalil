@@ -46,8 +46,27 @@ function randomNumber(max) {
 }
 function randomEmoji() {
   rand1.innerHTML = emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
+  rand1.innerHTML += emojis[randomNumber(maxNumber)];
   rand2.innerHTML = emojis[randomNumber(maxNumber)];
   rand3.innerHTML = emojis[randomNumber(maxNumber)];
+
+  box.classList.toggle("active");
+
+  addEventListener("transitionend", () => {
+    console.log("ended");
+  });
   img.src = `img/${randomNumber(7)}.jpg`;
 }
 function shuffle() {

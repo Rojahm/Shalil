@@ -6,7 +6,6 @@ let luckBtn = document.querySelector("#lucky-button");
 let resetBtn = document.querySelector("#reset-button");
 let boxes = document.querySelectorAll(".init-state");
 let insides = document.querySelectorAll(".inside");
-
 let emojis = [
   "🍧",
   "🌈",
@@ -56,13 +55,15 @@ function resetSlot(event) {
 
   resetBtn.classList.add("d-none");
   luckBtn.classList.remove("d-none");
-  rand1.classList.add("d-none");
-  rand2.classList.add("d-none");
-  rand3.classList.add("d-none");
+  // rand1.classList.add("d-none");
+  // rand2.classList.add("d-none");
+  // rand3.classList.add("d-none");
 
   for (let inside of insides) {
+    inside.classList.add("d-none");
     inside.classList.remove("active");
   }
+
   img.classList.add("d-none");
 }
 function randomEmoji(event) {
@@ -71,6 +72,7 @@ function randomEmoji(event) {
     box.classList.add("d-none");
   }
   for (let inside of insides) {
+    inside.classList.remove("d-none");
     inside.classList.add("active");
   }
 

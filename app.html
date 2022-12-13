@@ -17,11 +17,22 @@
     <h1>Shalil</h1>
     <div class="container">
       <div class="row">
-        <div class="col box border">hi</div>
-        <div class="col box border">hi</div>
-        <div class="col box border">hi</div>
+        <div class="col border">
+          <p class="box">🦄</p>
+          <p class="emoji"></p>
+        </div>
       </div>
     </div>
     <button class="luck-btn">Feel Luck</button>
+    <script>
+      let box = document.querySelectorAll(".box");
+      let emoji = document.querySelectorAll(".emoji");
+      let luckBtn = document.querySelector(".luck-btn");
+      function randomEmoji(event) {
+        event.preventDefault();
+        document.querySelectorAll(".emoji").classlist.add("d-none");
+      }
+      luckBtn.addEventListener("click", randomEmoji);
+    </script>
   </body>
 </html>

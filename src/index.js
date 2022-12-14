@@ -51,9 +51,9 @@ function resetSlot(event) {
   event.preventDefault();
   resetBtn.classList.add("d-none");
   luckBtn.classList.remove("d-none");
-  // for (let box of boxes) {
-  //   box.classList.remove("d-none");
-  // }
+  for (let box of boxes) {
+    box.classList.remove("d-none");
+  }
 
   // box1.classList.add("d-none");
   // box2.classList.add("d-none");

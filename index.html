@@ -15,23 +15,106 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <style>
+      h1,
+      h2 {
+        text-align: center;
+      }
+      p {
+        font-size: 50px;
+      }
+      .jackpot-slot {
+        min-width: 278px;
+      }
+      .box {
+        width: 130px;
+        height: 84px;
+        overflow: hidden;
+        min-width: 95px;
+      }
+      .init-state {
+        transition: all 500ms ease-in-out;
+        transform: translateX(0px);
+      }
+
+      .box .inside {
+        top: -300px;
+        position: relative;
+      }
+
+      .active {
+        top: -300px;
+        position: relative;
+        transition: all 2s;
+        transform: translateY(300px);
+      }
+      .jackpot-start {
+        background-color: rgb(255, 0, 140);
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        height: 84px;
+        max-width: 40px;
+      }
+      .jackpot-end {
+        background-color: rgb(255, 0, 140);
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        height: 84px;
+        max-width: 40px;
+      }
+      .btn {
+        background-color: rgb(255, 0, 140);
+        color: white;
+        transition: all 200ms ease-in-out;
+      }
+      .btn:hover {
+        border: 1px solid rgb(255, 0, 140);
+        color: var(--bs-pink);
+      }
+      .border {
+        border-color: rgba(255, 0, 140, 0.2) !important;
+      }
+      #box1 {
+        transition-delay: 0.5s;
+      }
+      #box2 {
+        transition-delay: 0.9s;
+      }
+      #box3 {
+        transition-delay: 2s;
+      }
+
+      .fade-in {
+        width: 60%;
+        animation: fadeIn ease 10s;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .footer {
+        font-size: 10px;
+        font-weight: 500;
+        color: var(--bs-pink);
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-4 ear-left p-5"></div>
-        <div class="col-4">
+      <div class="row mt-3">
+        <div class="col">
           <h1>This is Shalil</h1>
           <h2>The Sunshine</h2>
         </div>
-        <div class="col-4 ear-right"></div>
       </div>
-
       <div class="row">
         <div class="col"></div>
         <div class="col">
-          <div class="d-flex">
+          <div class="d-flex jackpot-slot">
             <div class="col jackpot-start"></div>
             <div class="col border text-center box">
               <p class="init-state">🦄</p>
@@ -48,26 +131,134 @@
             <div class="col jackpot-end"></div>
           </div>
         </div>
-        <div class="col">
-          <button class="btn btn-success" id="lucky-button">feel lucky</button>
-          <button class="btn btn-success d-none" id="reset-button">
-            Reset
-          </button>
-        </div>
+        <div class="col"></div>
       </div>
       <div class="row">
         <div class="col"></div>
-        <div class="col random-img-div">
-          <img
-            src=""
-            alt="shalil doing something"
-            id="random-img"
-            class="d-none img-fluid p-3 mt-5 border rounded shadow-sm text-center"
-          />
+        <div class="col text-center mt-3">
+          <button class="btn shadow" id="lucky-button">Feel lucky</button>
+          <button class="btn shadow d-none" id="reset-button">Reset</button>
         </div>
         <div class="col"></div>
       </div>
+      <div class="row text-center">
+        <div class="col random-img">
+          <img
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/058/763/original/1.jpg?1671054005"
+            alt="shalil doing something"
+            id="random-img"
+            class="d-none img-fluid p-3 mt-2 border rounded shadow-sm text-center"
+          />
+        </div>
+      </div>
+      <div><p class="footer text-center mt-2">SheCoded by Shalil's mom</p></div>
     </div>
-    <script src="src/index.js"></script>
+    <script>
+      let box1 = document.querySelector("#box1");
+      let box2 = document.querySelector("#box2");
+      let box3 = document.querySelector("#box3");
+      let img = document.querySelector("#random-img");
+      let luckBtn = document.querySelector("#lucky-button");
+      let resetBtn = document.querySelector("#reset-button");
+      let boxes = document.querySelectorAll(".init-state");
+      let insides = document.querySelectorAll(".inside");
+      let emojis = [
+        "🍧",
+        "🌈",
+        "🍨",
+        "🍭",
+        "🌞",
+        "☀",
+        "🌻",
+        "😎",
+        "👧",
+        "🐣",
+        "🐥",
+        "🐤",
+        "🎀",
+        "🎈",
+        "🎗",
+        "👛",
+        "🩰",
+        "💄",
+        "🪀",
+        "🔮",
+        "🧿",
+        "🪁",
+        "💎",
+        "👒",
+        "👗",
+        "🎁",
+        "🎢",
+        "🎪",
+        "🦝",
+        "🦄",
+        "😽",
+      ];
+      let maxNumber = emojis.length;
+      let content1 = [""];
+      let content2 = [""];
+      let content3 = [""];
+      let spin = 0;
+      function randomNumber(max) {
+        return Math.floor(Math.random() * max);
+      }
+      function resetSlot(event) {
+        event.preventDefault();
+        resetBtn.classList.add("d-none");
+        luckBtn.classList.remove("d-none");
+        for (let box of boxes) {
+          box.classList.remove("d-none");
+        }
+        for (let inside of insides) {
+          inside.classList.remove("active");
+        }
+        content1 = [""];
+        content2 = [""];
+        content3 = [""];
+        box1.innerHTML = content1;
+        box2.innerHTML = content2;
+        box3.innerHTML = content3;
+        // img.src = "";
+        img.classList.remove("fade-in");
+        img.classList.add("d-none");
+        spin = 0;
+      }
+      function showImg() {
+        if (spin === 0) {
+          // img.src = `img/${randomNumber(7)}.jpg`;
+          img.classList.remove("d-none");
+          img.classList.add("fade-in");
+        }
+      }
+      function randomEmoji(event) {
+        event.preventDefault();
+        for (let index = 0; index < 6; index++) {
+          content1 += emojis[randomNumber(maxNumber)];
+          content2 += emojis[randomNumber(maxNumber)];
+          content3 += emojis[randomNumber(maxNumber)];
+        }
+        box1.innerHTML = content1;
+        box2.innerHTML = content2;
+        box3.innerHTML = content3;
+        for (let box of boxes) {
+          box.classList.add("d-none");
+        }
+        for (let inside of insides) {
+          inside.classList.remove("d-none");
+          inside.classList.add("active");
+        }
+
+        document
+          .getElementById("box3")
+          .addEventListener("transitionend", showImg());
+        luckBtn.classList.add("d-none");
+        resetBtn.classList.remove("d-none");
+        spin = 1;
+      }
+
+      luckBtn.addEventListener("click", randomEmoji);
+      resetBtn.addEventListener("click", resetSlot);
+    </script>
   </body>
 </html>
